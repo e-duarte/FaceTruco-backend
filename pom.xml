@@ -21,6 +21,27 @@
 
   <dependencies>
     <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-web-api</artifactId>
+      <version>7.0</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.23</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>4.3.1.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>unknown.binary</groupId>
+      <artifactId>hibernate-jpamodelgen-4.3.1.Final</artifactId>
+      <version>SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
@@ -63,5 +84,25 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <!-- Implatação do app no sevidor glassfish -->
+      <plugin>
+        <groupId>com.utfpr</groupId>
+        <artifactId>deployGlassfish</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <configuration>
+              <server>/home/ewerton/glassfish5</server>
+              <domain>domain1</domain>
+              <war>${project.basedir}/target/facetruco-backend.war</war>
+            </configuration>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
