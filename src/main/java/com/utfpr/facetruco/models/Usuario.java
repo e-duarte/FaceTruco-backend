@@ -17,6 +17,7 @@ public class Usuario{
     private String sobrenome;
     private String email;
     private String senha;
+    private String genero;
     
     @Temporal(TemporalType.DATE)
     private Date data_nascimento;
@@ -27,20 +28,24 @@ public class Usuario{
 
     /* Getters and Setters */
     public Long getId() { return this.id; }
-    public void setId(Long id) { this.id = id; }
+    public String getGenero() { return this.genero; }
     public String getNome() { return this.nome; }
-    public void setNome(String nome) { this.nome = nome; }
     public String getSobrenome() { return this.sobrenome; }
-    public void setSobrenome(String sobrenome) { this.sobrenome = sobrenome; }
-    public String getEmail() { return this.email; }
-    public void setEmail(String email) { this.email = email; }
     public String getSenha() { return this.senha; }
-    public void setSenha(String senha) { this.senha = senha; }
     public Date getData_nascimento() { return this.data_nascimento; }
-    public void setData_nascimento(Date data_nascimento) { this.data_nascimento = data_nascimento; }
     public String getFoto_perfil() { return this.foto_perfil; }
-    public void setFoto_perfil(String foto_perfil) { this.foto_perfil = foto_perfil; }
     public String getFoto_timeline() { return this.foto_timeline; }
+    public String getEmail() { return this.email; }
+
+    public void setNome(String nome) { this.nome = nome; }
+    public void setId(Long id) { this.id = id; }
+    public void setSobrenome(String sobrenome) { this.sobrenome = sobrenome; }
+    public void setEmail(String email) { this.email = email; }
+    public void setSenha(String senha) { this.senha = senha; }
+    public void setData_nascimento(Date data_nascimento) { this.data_nascimento = data_nascimento; }
+    public void setFoto_perfil(String foto_perfil) { this.foto_perfil = foto_perfil; }
     public void setFoto_timeline(String foto_timeline) { this.foto_timeline = foto_timeline; }
+    public void setGenero(String genero) { this.genero = genero; }
+
 
 }

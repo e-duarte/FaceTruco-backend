@@ -11,6 +11,7 @@ public abstract class Usuario_ {
 
 	public static volatile SingularAttribute<Usuario, String> senha;
 	public static volatile SingularAttribute<Usuario, Date> data_nascimento;
+	public static volatile SingularAttribute<Usuario, String> genero;
 	public static volatile SingularAttribute<Usuario, String> foto_perfil;
 	public static volatile SingularAttribute<Usuario, String> nome;
 	public static volatile SingularAttribute<Usuario, Long> id;

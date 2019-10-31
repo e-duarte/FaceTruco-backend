@@ -1,14 +1,17 @@
 package com.utfpr.facetruco.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 
 
 
@@ -26,15 +29,29 @@ public class Postagem{
     // @JoinColumn(name="pat_codtipo")
     private Usuario usuario;
 
+    @ManyToMany
+    // @JoinColumn(name="pat_codtipo")
+    private List<Comentario> comentarios;
+
+    @ManyToMany
+    // @JoinColumn(name="pat_codtipo")
+    private List<Recurso> recursos;
+
     /* Getters and Setter */
+    public Long getId(){ return this.id; }
     public String getLegenda(){ return this.legenda; }
     public String getSentimento(){ return this.sentimento; }
     public Date getData(){ return this.data; }
     public Usuario getUsuario(){ return this.usuario; }
-
+    public List<Comentario> getComentarios() { return this.comentarios; }
+    public List<Recurso> getRecursos(){ return this.recursos; }
+    
+    public void setId(Long id){ this.id = id; }
     public void setLegenda(String legenda){ this.legenda = legenda; }
     public void setSentimento(String sentimento){ this.sentimento = sentimento; }
     public void setData(Date data){ this.data = data; }
     public void setUsuario(Usuario usuario){ this.usuario = usuario; }
+    public void setComentarios(List<Comentario> comentarios) { this.comentarios = comentarios; }
+    public void setRecursos(List<Recurso> recursos) { this.recursos = recursos; }
     
 }

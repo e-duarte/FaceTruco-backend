@@ -2,6 +2,7 @@ package com.utfpr.facetruco.models;
 
 import java.util.Date;
 import javax.annotation.Generated;
+import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
@@ -13,6 +14,8 @@ public abstract class Postagem_ {
 	public static volatile SingularAttribute<Postagem, Date> data;
 	public static volatile SingularAttribute<Postagem, Usuario> usuario;
 	public static volatile SingularAttribute<Postagem, Long> id;
+	public static volatile ListAttribute<Postagem, Recurso> recursos;
+	public static volatile ListAttribute<Postagem, Comentario> comentarios;
 	public static volatile SingularAttribute<Postagem, String> sentimento;
 
 }
