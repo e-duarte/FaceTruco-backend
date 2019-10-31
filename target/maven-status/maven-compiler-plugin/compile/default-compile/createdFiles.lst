@@ -2,4 +2,5 @@ com/utfpr/facetruco/models/Album_.class
 com/utfpr/facetruco/models/Usuario_.class
 com/utfpr/facetruco/models/Postagem_.class
 com/utfpr/facetruco/models/Comentario_.class
+com/utfpr/facetruco/models/Reacao_.class
 com/utfpr/facetruco/models/Recurso_.class

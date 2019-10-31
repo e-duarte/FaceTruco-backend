@@ -5,3 +5,4 @@
 /home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/UsuarioController.java
 /home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Usuario.java
 /home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Comentario.java
+/home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Reacao.java
