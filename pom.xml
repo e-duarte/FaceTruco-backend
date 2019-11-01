@@ -110,7 +110,7 @@
         <executions>
           <execution>
             <configuration>
-              <server>/home/ewerton/glassfish5</server>
+              <server>/home/vitor/glassfish5</server>
               <domain>domain1</domain>
               <war>${project.basedir}/target/facetruco-backend.war</war>
             </configuration>

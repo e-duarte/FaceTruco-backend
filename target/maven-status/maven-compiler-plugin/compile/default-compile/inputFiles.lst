@@ -1,7 +1,10 @@
-/home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Postagem.java
-/home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Recurso.java
-/home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Album.java
-/home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/Servlet.java
-/home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/UsuarioController.java
-/home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Usuario.java
-/home/ewerton/Desktop/TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Comentario.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/data/UsuarioDAO.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Album.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/security/CORSFilter.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Comentario.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Recurso.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Postagem.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/Servlet.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/data/Connection.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/UsuarioController.java
+/home/vitor/webprojects/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Usuario.java

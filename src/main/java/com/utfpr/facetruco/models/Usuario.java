@@ -36,7 +36,6 @@ public class Usuario{
     public String getFoto_perfil() { return this.foto_perfil; }
     public String getFoto_timeline() { return this.foto_timeline; }
     public String getEmail() { return this.email; }
-
     public void setNome(String nome) { this.nome = nome; }
     public void setId(Long id) { this.id = id; }
     public void setSobrenome(String sobrenome) { this.sobrenome = sobrenome; }
