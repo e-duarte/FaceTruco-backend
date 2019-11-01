@@ -21,7 +21,6 @@
 
   <dependencies>
     <dependency>
-    
       <groupId>javax</groupId>
       <artifactId>javaee-web-api</artifactId>
       <version>7.0</version>
@@ -32,17 +31,10 @@
       <version>5.1.23</version>
     </dependency>
     <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-entitymanager</artifactId>
-      <version>4.3.1.Final</version>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.4.7.Final</version>
     </dependency>
-    <dependency>
-      <groupId>unknown.binary</groupId>
-      <artifactId>hibernate-jpamodelgen-4.3.1.Final</artifactId>
-      <version>SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-
     <dependency>
       <groupId>org.glassfish.jersey.core</groupId>
       <artifactId>jersey-server</artifactId>
@@ -57,13 +49,6 @@
       <groupId>com.fasterxml.jackson.jaxrs</groupId>
       <artifactId>jackson-jaxrs-json-provider</artifactId>
       <version>2.4.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
 

@@ -3,6 +3,7 @@ package com.utfpr.facetruco.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,8 +23,10 @@ public class Album{
     private String titulo;
     private String descricao;
     
-    @Temporal(TemporalType.DATE)
-    private Date data;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="timestamp", nullable = false,
+    columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
+    private Date timestamp;
 
     @ManyToOne
     // @JoinColumn(name="pat_codtipo")
@@ -51,7 +54,7 @@ public class Album{
     public Long getId() { return this.id; }
     public String getTitulo() { return this.titulo; }
     public String getDescricao() { return this.descricao; }
-    public Date getData() { return this.data; }
+    public Date geTimestamp() { return this.timestamp; }
     public Usuario getUsuario() { return this.usuario; }
     public List<Comentario> getComentarios() { return this.comentarios; }
     public List<Postagem> getPosts() { return this.posts; }
@@ -59,7 +62,7 @@ public class Album{
     public void setId(Long id) { this.id = id; }
     public void setTitulo(String titulo) { this.titulo = titulo; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
-    public void setData(Date data) { this.data = data; }
+    public void seTimestamp(Date timestamp) { this.timestamp = timestamp; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
     public void setComentarios(List<Comentario> comentarios) { this.comentarios = comentarios; }
     public void setPosts(List<Postagem> posts) { this.posts = posts; }

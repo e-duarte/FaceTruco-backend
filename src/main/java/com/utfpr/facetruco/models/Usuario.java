@@ -1,5 +1,6 @@
 package com.utfpr.facetruco.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,18 +17,22 @@ import java.util.List;
 public class Usuario{
     @Id @GeneratedValue
     private Long id;
-
     private String nome;
     private String sobrenome;
     private String email;
     private String senha;
     private String genero;
-    
+    private String fotoPerfil;
+    private String fotoTimeline;
     @Temporal(TemporalType.DATE)
-    private Date data_nascimento;
+    private Date dataNascimento;
 
-    private String foto_perfil;
-    private String foto_timeline;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="timestamp", nullable = false,
+    columnDefinition="TIMESTAMP default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP")
+    private Date timestamp;
+
+    
 
     @ManyToMany
     @JoinTable(name = "Amigo",
@@ -42,20 +47,23 @@ public class Usuario{
     public String getNome() { return this.nome; }
     public String getSobrenome() { return this.sobrenome; }
     public String getSenha() { return this.senha; }
-    public Date getData_nascimento() { return this.data_nascimento; }
-    public String getFoto_perfil() { return this.foto_perfil; }
-    public String getFoto_timeline() { return this.foto_timeline; }
+    public Date getDataNascimento() { return this.dataNascimento; }
+    public String getFotoPerfil() { return this.fotoPerfil; }
+    public String getFotoTimeline() { return this.fotoTimeline; }
     public String getEmail() { return this.email; }
+    public Date getTimestamp() { return this.timestamp; }
+    public List<Usuario> getAmigos() { return this.amigos; }
 
     public void setNome(String nome) { this.nome = nome; }
     public void setId(Long id) { this.id = id; }
     public void setSobrenome(String sobrenome) { this.sobrenome = sobrenome; }
     public void setEmail(String email) { this.email = email; }
     public void setSenha(String senha) { this.senha = senha; }
-    public void setData_nascimento(Date data_nascimento) { this.data_nascimento = data_nascimento; }
-    public void setFoto_perfil(String foto_perfil) { this.foto_perfil = foto_perfil; }
-    public void setFoto_timeline(String foto_timeline) { this.foto_timeline = foto_timeline; }
+    public void setDataNascimento(Date dataNascimento) { this.dataNascimento = dataNascimento; }
+    public void setFotoPerfil(String fotoPerfil) { this.fotoPerfil = fotoPerfil; }
+    public void setFotoTimeline(String fotoTimeline) { this.fotoTimeline = fotoTimeline; }
     public void setGenero(String genero) { this.genero = genero; }
-
+    public void setTimestamp(Date timestamp) { this.timestamp = timestamp; }
+    public void setAmigos(List<Usuario> amigos) { this.amigos = amigos; }
 
 }

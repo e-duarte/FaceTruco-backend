@@ -17,8 +17,8 @@ import javax.ws.rs.core.MediaType;
 import com.utfpr.facetruco.models.Usuario;
 
 
-@Path("/usuario")
-public class UsuarioController{
+@Path("/amigo")
+public class AmigoController{
     EntityManagerFactory f = Persistence.createEntityManagerFactory("teste");
     EntityManager m = f.createEntityManager();
     

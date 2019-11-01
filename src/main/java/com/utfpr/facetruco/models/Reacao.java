@@ -1,12 +1,11 @@
 package com.utfpr.facetruco.models;
 
-import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 
 
@@ -16,7 +15,6 @@ public class Reacao{
     private Long id;
     private String reacao;
     
-
     /* Getters and Setters */
     public Long getId() {return this.id; }
     public String getReacao() { return this.reacao; }
