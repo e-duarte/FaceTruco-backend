@@ -1,8 +1,12 @@
+com/utfpr/facetruco/models/Comentario.class
+com/utfpr/facetruco/data/UsuarioDAO.class
 com/utfpr/facetruco/Servlet.class
 com/utfpr/facetruco/models/Album.class
 com/utfpr/facetruco/models/Usuario.class
 com/utfpr/facetruco/controllers/UsuarioController.class
-com/utfpr/facetruco/models/Comentario.class
 com/utfpr/facetruco/models/Reacao.class
+com/utfpr/facetruco/data/Connection.class
+com/utfpr/facetruco/controllers/AmigoController.class
 com/utfpr/facetruco/models/Recurso.class
+com/utfpr/facetruco/security/CORSFilter.class
 com/utfpr/facetruco/models/Postagem.class
