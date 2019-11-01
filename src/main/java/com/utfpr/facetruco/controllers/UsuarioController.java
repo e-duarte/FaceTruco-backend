@@ -1,6 +1,5 @@
 package com.utfpr.facetruco.controllers;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.ws.rs.PathParam;
@@ -13,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.utfpr.facetruco.data.UsuarioDAO;
 import com.utfpr.facetruco.models.Usuario;
+
 
 @Path("/usuario")
 public class UsuarioController{

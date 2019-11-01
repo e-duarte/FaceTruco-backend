@@ -38,12 +38,14 @@ public class Album{
     private List<Postagem> posts;
 
     @ManyToMany
-    // @JoinTable(
-    //     name="Colaborador",
-    //     joinColumns=@JoinColumn(name="ALB_ID"),
-    //     inverseJoinColumns=@JoinColumn(name="US_ID")
-    // )
+    @JoinTable(name = "Colaborador",
+        joinColumns = @JoinColumn(name = "id_alb"),
+        inverseJoinColumns = @JoinColumn(name = "id_usu"))
     private List<Usuario> colabs;
+
+    @ManyToMany
+    // @JoinColumn(name="pat_codtipo")
+    private List<Reacao> reacoes;
 
     /* Getters and Setters */
     public Long getId() { return this.id; }

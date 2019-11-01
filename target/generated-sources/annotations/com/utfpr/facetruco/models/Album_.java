@@ -17,6 +17,7 @@ public abstract class Album_ {
 	public static volatile ListAttribute<Album, Usuario> colabs;
 	public static volatile ListAttribute<Album, Comentario> comentarios;
 	public static volatile ListAttribute<Album, Postagem> posts;
+	public static volatile ListAttribute<Album, Reacao> reacoes;
 	public static volatile SingularAttribute<Album, String> descricao;
 
 }

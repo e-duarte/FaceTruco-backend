@@ -20,9 +20,9 @@ public class UsuarioDAO {
     }
 
     public List<Usuario> listAll(){
-        // String sql = "select u from Usuario u";
-        // TypedQuery<Usuario> q = Connection.getConnection().createQuery(sql, Usuario.class);
-        // List<Usuario> usuarios = q.getResultList();
+        String sql = "select u from Usuario u";
+        TypedQuery<Usuario> q = Connection.getConnection().createQuery(sql, Usuario.class);
+        List<Usuario> usuarios = q.getResultList();
          Connection.getConnection().close();
         return usuarios;
     }

@@ -3,10 +3,14 @@ package com.utfpr.facetruco.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.JoinColumn;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Usuario{
@@ -24,6 +28,12 @@ public class Usuario{
 
     private String foto_perfil;
     private String foto_timeline;
+
+    @ManyToMany
+    @JoinTable(name = "Amigo",
+    joinColumns = @JoinColumn(name = "id_usuario"),
+    inverseJoinColumns = @JoinColumn(name = "id_target"))
+    private List<Usuario> amigos;
 
 
     /* Getters and Setters */
