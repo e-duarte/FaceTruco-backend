@@ -14,7 +14,7 @@ import com.utfpr.facetruco.data.UsuarioDAO;
 import com.utfpr.facetruco.models.Usuario;
 
 
-@Path("/usuario")
+@Path("/usuarios")
 public class UsuarioController{
     private UsuarioDAO usuarioDAO;
     
