@@ -9,12 +9,15 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 import com.utfpr.facetruco.data.UsuarioDAO;
 import com.utfpr.facetruco.models.Usuario;
 
 
 @Path("/usuarios")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class UsuarioController{
     private UsuarioDAO usuarioDAO;
     
@@ -30,16 +33,17 @@ public class UsuarioController{
     }
 
     @GET
-    @Path("/{email}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Usuario getUsuario(@PathParam("email") String email){
+    @Path("/{username}")
+    
+    public Usuario getUsuario(@PathParam("username") String email){
         Usuario u = this.usuarioDAO.get(email);
         return u;
     }
 
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void store(Usuario u){
+    
+    public Response store(Usuario u){
         this.usuarioDAO.store(u);
+        return Response.status(Response.Status.CREATED).build();
     }
 }

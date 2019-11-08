@@ -6,22 +6,26 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.SignatureException;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
+// @WebFilter("/*")
 public class JWTFilter implements Filter{
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) servletRequest;
-        HttpServletResponse res = (HttpServletResponse) servletResponse;
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException {
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
 
-        if(req.getRequestURI().startsWith("/login")){
-            filterChain.doFilter(servletRequest, servletResponse);
+        if(req.getRequestURI().startsWith("/login") || 
+        (req.getRequestURI().startsWith("/usuarios") && req.getMethod().equals("POST"))){
+            filterChain.doFilter(request, response);
             return;
         }
 
@@ -35,7 +39,7 @@ public class JWTFilter implements Filter{
         try {
             Jws<Claims> parser = JWTUtil.decode(token);
             System.out.println("User request: "+ parser.getBody().getSubject());
-            filterChain.doFilter(servletRequest, servletResponse);
+            filterChain.doFilter(request, response);
         } catch (SignatureException e) {
             res.setStatus(401);
         }

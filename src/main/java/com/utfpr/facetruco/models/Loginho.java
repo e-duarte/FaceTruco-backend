@@ -3,7 +3,7 @@ package com.utfpr.facetruco.models;
 
 public class Loginho{
     private String email;
-    private String senha;
+    private String password;
 
 
     public String getEmail() {
@@ -14,12 +14,12 @@ public class Loginho{
         this.email = email;
     }
 
-    public String getSenha() {
-        return this.senha;
+    public String getPassword() {
+        return this.password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

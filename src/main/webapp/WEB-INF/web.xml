@@ -22,7 +22,7 @@
 
     <filter>
         <filter-name>jwtFilter</filter-name>
-        <filter-class>com.utfpr.facetruco.security.JWTFilter</filter-class>
+        <filter-class>com.utfpr.facetruco.filter.JWTFilter</filter-class>
     </filter>
 
     <filter-mapping>

@@ -10,11 +10,13 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+
+import com.utfpr.facetruco.JWTUtil;
+import com.utfpr.facetruco.data.LoginDAO;
 import com.utfpr.facetruco.data.UsuarioDAO;
 import com.utfpr.facetruco.models.Loginho;
 import com.utfpr.facetruco.models.Usuario;
 import com.utfpr.facetruco.models.UsuarioLogado;
-import com.utfpr.facetruco.security.JWTUtil;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -23,10 +25,11 @@ import io.jsonwebtoken.Jws;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class LoginController{
+    private LoginDAO loginDAO;
     private UsuarioDAO usuarioDAO;
 
     public LoginController(){
-        usuarioDAO = new UsuarioDAO();
+        loginDAO = new LoginDAO();
     }
 
     @GET
@@ -35,18 +38,18 @@ public class LoginController{
         String token = httpRequest.getHeader(JWTUtil.TOKEN_HEADER);
         Jws<Claims> jws = JWTUtil.decode(token);
         UsuarioLogado me = new UsuarioLogado();
-        me.setEmail(jws.getBody().getSubject());
+        me.setUsername(jws.getBody().getSubject());
         return me;
     }
 
     @POST
     @Path("/login")
     public Response login(Loginho loguinho){
-        Usuario u = usuarioDAO.get(loguinho);
-        if(u != null){
-            String token = JWTUtil.create(loguinho.getEmail());
+        Usuario user = loginDAO.get(loguinho);
+        if(user != null){
+            String token = JWTUtil.create(user.getUsername());
             UsuarioLogado me = new UsuarioLogado();
-            me.setEmail(loguinho.getEmail());
+            me.setUsername(user.getUsername());
             me.setToken(token);
             return Response.ok().entity(me).build();
         }else{  

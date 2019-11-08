@@ -4,11 +4,9 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import com.utfpr.facetruco.models.Loginho;
 import com.utfpr.facetruco.models.Usuario;
 
 public class UsuarioDAO {
-
     public void store (Usuario u){
         Connection.getConnection().getTransaction().begin();
         Connection.getConnection().persist(u);
@@ -22,28 +20,22 @@ public class UsuarioDAO {
         return usuarios;
     }
 
-    public Usuario get(String email){
+    public Usuario get(String username){
         String sql = "select u "+
                         "from Usuario u " +
-                        "where u.email = :email";
+                        "where u.username = :username";
         TypedQuery<Usuario> query = Connection.getConnection().createQuery(sql, Usuario.class);
-        query.setParameter("email",email);
+        query.setParameter("username",username);
         Usuario usuario = query.getSingleResult();
 
         return usuario;
     }
 
-    public Usuario get(Loginho loguinho){
-        String sql = "select u "+
-                        "from Usuario u " +
-                        "where u.email = :email and " +
-                        "u.senha = :senha";
-        TypedQuery<Usuario> query = Connection.getConnection().createQuery(sql, Usuario.class);
-        query.setParameter("email",loguinho.getEmail());
-        query.setParameter("senha",loguinho.getSenha());
-        Usuario usuario = query.getSingleResult();
-
-        return usuario;
+    public void delete(String username){
+        Usuario user = get(username);
+        Connection.getConnection().getTransaction().begin();
+        Connection.getConnection().remove(user);
+        Connection.getConnection().getTransaction().commit();
     }
 
 }
