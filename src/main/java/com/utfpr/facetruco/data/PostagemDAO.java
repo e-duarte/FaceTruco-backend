@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import com.utfpr.facetruco.models.Postagem;
+import com.utfpr.facetruco.models.Usuario;
 
 public class PostagemDAO{
     public void store(Postagem post){
@@ -13,11 +14,13 @@ public class PostagemDAO{
         Connection.getConnection().getTransaction().commit();
     }
 
-    public List<Postagem> listAll(){
-        String sql = "select p from Postagem u";
-        TypedQuery<Postagem> q = Connection.getConnection().createQuery(sql, Postagem.class);
-        List<Postagem> usuarios = q.getResultList();
-        return usuarios;
+    public List<Postagem> listAll(String username){
+        String sql = "select p from Postagem u" + 
+                        "where p.user.username = :username";
+        TypedQuery<Postagem> query = Connection.getConnection().createQuery(sql, Postagem.class);
+        query.setParameter("username",username);
+        List<Postagem> posts = query.getResultList();
+        return posts;
     }
 
     public Postagem get(Long id){
