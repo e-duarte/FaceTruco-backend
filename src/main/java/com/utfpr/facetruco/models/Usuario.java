@@ -9,12 +9,13 @@ import javax.persistence.ManyToMany;
 
 import javax.persistence.JoinColumn;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 public class Usuario extends Model{
+    private static final long serialVersionUID = -248494534314157762L;
+    
     private String nome;
     private String sobrenome;
     @Column(unique = true)

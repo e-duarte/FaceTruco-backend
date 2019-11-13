@@ -1,6 +1,5 @@
 package com.utfpr.facetruco.models;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,6 +10,8 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Postagem extends Model{
+    private static final long serialVersionUID = -1760189516304570363L;
+    
     private String legenda;
     private String sentimento;
     @ManyToOne

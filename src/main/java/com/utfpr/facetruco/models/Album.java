@@ -1,37 +1,29 @@
 package com.utfpr.facetruco.models;
 
-import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 
 
 @Entity
 public class Album extends Model{
+    private static final long serialVersionUID = 3679301964975935477L;
+    
     private String titulo;
     private String descricao;
     
     @ManyToOne
-    // @JoinColumn(name="pat_codtipo")
     private Usuario usuario;
 
     @ManyToMany
-    // @JoinColumn(name="pat_codtipo")
     private List<Comentario> comentarios;
 
     @ManyToMany
-    // @JoinColumn(name="pat_codtipo")
     private List<Postagem> posts;
 
     @ManyToMany
@@ -41,7 +33,6 @@ public class Album extends Model{
     private List<Usuario> colabs;
 
     @ManyToMany
-    // @JoinColumn(name="pat_codtipo")
     private List<Reacao> reacoes;
 
     /* Getters and Setters */
