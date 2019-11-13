@@ -1,4 +1,4 @@
-package com.utfpr.facetruco;
+package com.utfpr.facetruco.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;

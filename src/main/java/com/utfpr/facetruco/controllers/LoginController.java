@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 
-import com.utfpr.facetruco.JWTUtil;
+import com.utfpr.facetruco.util.JWTUtil;
 import com.utfpr.facetruco.data.LoginDAO;
 import com.utfpr.facetruco.data.UsuarioDAO;
 import com.utfpr.facetruco.models.Loginho;

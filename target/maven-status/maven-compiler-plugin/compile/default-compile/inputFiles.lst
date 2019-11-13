@@ -1,12 +1,14 @@
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/data/Connection.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Album.java
-/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/JWTUtil.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/UsuarioController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Postagem.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Model.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/data/LoginDAO.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/security/CORSFilter.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Reacao.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/util/JWTUtil.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/AmigoController.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/PostagemController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Recurso.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/LoginController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/UsuarioLogado.java

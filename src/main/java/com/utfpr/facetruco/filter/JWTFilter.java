@@ -1,18 +1,15 @@
 package com.utfpr.facetruco.filter;
 
-import com.utfpr.facetruco.JWTUtil;
+import com.utfpr.facetruco.util.JWTUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.SignatureException;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-// @WebFilter("/*")
 public class JWTFilter implements Filter{
 
     @Override

@@ -1,8 +1,10 @@
 package com.utfpr.facetruco.controllers;
 
-import java.util.List;
 
 import javax.ws.rs.PathParam;
+
+import java.util.List;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -25,12 +27,16 @@ public class UsuarioController{
     public UsuarioController(){
         this.usuarioDAO = new UsuarioDAO();
     }
+
+    @POST
+    public Response store(Usuario user){
+        this.usuarioDAO.store(user);
+        return Response.status(Response.Status.CREATED).build();
+    }
     
     @GET
-    // @Produces(MediaType.APPLICATION_JSON)
     public List<Usuario> list(){
-        List<Usuario> usuarios = this.usuarioDAO.listAll();
-        return usuarios;
+        return this.usuarioDAO.listAll();
     }
 
     @GET
@@ -38,12 +44,6 @@ public class UsuarioController{
     public Usuario getUsuario(@PathParam("username") String username){
         Usuario u = this.usuarioDAO.get(username);
         return u;
-    }
-
-    @POST
-    public Response store(Usuario u){
-        this.usuarioDAO.store(u);
-        return Response.status(Response.Status.CREATED).build();
     }
 
     @DELETE

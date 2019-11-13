@@ -15,8 +15,8 @@ public class UsuarioDAO {
 
     public List<Usuario> listAll(){
         String sql = "select u from Usuario u";
-        TypedQuery<Usuario> q = Connection.getConnection().createQuery(sql, Usuario.class);
-        List<Usuario> usuarios = q.getResultList();
+        TypedQuery<Usuario> query = Connection.getConnection().createQuery(sql, Usuario.class);
+        List<Usuario> usuarios = query.getResultList();
         return usuarios;
     }
 
