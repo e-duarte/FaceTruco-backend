@@ -1,7 +1,7 @@
-package com.utfpr.facetruco.models;
+package com.utfpr.facetruco.pojo;
 
 
-public class UsuarioLogado{
+public class UserLogged{
     private String username;
     private String token;
 

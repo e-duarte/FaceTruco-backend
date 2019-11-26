@@ -2,7 +2,7 @@ package com.utfpr.facetruco.data;
 
 import javax.persistence.TypedQuery;
 
-import com.utfpr.facetruco.models.Loginho;
+import com.utfpr.facetruco.pojo.Loginho;
 import com.utfpr.facetruco.models.Usuario;
 
 public class LoginDAO{

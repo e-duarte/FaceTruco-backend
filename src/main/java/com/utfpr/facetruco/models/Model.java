@@ -33,4 +33,12 @@ public abstract class Model implements Serializable{
         this.timestamp = timestamp;
     }
 
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }

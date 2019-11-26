@@ -10,13 +10,11 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-
 import com.utfpr.facetruco.util.JWTUtil;
 import com.utfpr.facetruco.data.LoginDAO;
-import com.utfpr.facetruco.data.UsuarioDAO;
-import com.utfpr.facetruco.models.Loginho;
+import com.utfpr.facetruco.pojo.Loginho;
 import com.utfpr.facetruco.models.Usuario;
-import com.utfpr.facetruco.models.UsuarioLogado;
+import com.utfpr.facetruco.pojo.UserLogged;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -26,7 +24,6 @@ import io.jsonwebtoken.Jws;
 @Produces(MediaType.APPLICATION_JSON)
 public class LoginController{
     private LoginDAO loginDAO;
-    private UsuarioDAO usuarioDAO;
 
     public LoginController(){
         loginDAO = new LoginDAO();
@@ -34,10 +31,10 @@ public class LoginController{
 
     @GET
     @Path("/me")
-    public UsuarioLogado me(@Context HttpServletRequest httpRequest) {
+    public UserLogged me(@Context HttpServletRequest httpRequest) {
         String token = httpRequest.getHeader(JWTUtil.TOKEN_HEADER);
         Jws<Claims> jws = JWTUtil.decode(token);
-        UsuarioLogado me = new UsuarioLogado();
+        UserLogged me = new UserLogged();
         me.setUsername(jws.getBody().getSubject());
         return me;
     }
@@ -48,7 +45,7 @@ public class LoginController{
         Usuario user = loginDAO.get(loguinho);
         if(user != null){
             String token = JWTUtil.create(user.getUsername());
-            UsuarioLogado me = new UsuarioLogado();
+            UserLogged me = new UserLogged();
             me.setUsername(user.getUsername());
             me.setToken(token);
             return Response.ok().entity(me).build();

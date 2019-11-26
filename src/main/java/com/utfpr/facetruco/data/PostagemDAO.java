@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import com.utfpr.facetruco.models.Postagem;
-import com.utfpr.facetruco.models.Usuario;
+import com.utfpr.facetruco.pojo.Post;
 
 public class PostagemDAO{
     public void store(Postagem post){
@@ -14,23 +14,26 @@ public class PostagemDAO{
         Connection.getConnection().getTransaction().commit();
     }
 
-    public List<Postagem> listAll(String username){
-        String sql = "select p from Postagem u" + 
-                        "where p.user.username = :username";
-        TypedQuery<Postagem> query = Connection.getConnection().createQuery(sql, Postagem.class);
-        query.setParameter("username",username);
-        List<Postagem> posts = query.getResultList();
-        return posts;
+    public List<Post> listAll(String username){
+        String sql = "SELECT " + 
+            "new com.utfpr.facetruco.pojo.Post " +
+            "(p.id, p.legenda, p.sentimento, p.usuario.username) " +
+            " FROM Postagem p " +
+            "WHERE p.usuario.username = :username";
+
+        TypedQuery<Post> query = Connection.getConnection().createQuery(sql, Post.class);
+        query.setParameter("username", username);
+        return query.getResultList();
+        
     }
 
     public Postagem get(Long id){
         String sql = "select p "+
                         "from Postagem p " +
-                        "where u.id = :id";
+                        "where p.id = :id";
         TypedQuery<Postagem> query = Connection.getConnection().createQuery(sql, Postagem.class);
         query.setParameter("id",id);
-        Postagem post = query.getSingleResult();
-        return post;
+        return query.getSingleResult();
     }
 
     public void delete(Long id){

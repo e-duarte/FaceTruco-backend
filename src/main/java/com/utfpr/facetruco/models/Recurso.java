@@ -1,10 +1,11 @@
 package com.utfpr.facetruco.models;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 
 @Entity
 public class Recurso extends Model{
+    private static final long serialVersionUID = -2120085968170803672L;
+    
     private String url;
     private String tipo;
 

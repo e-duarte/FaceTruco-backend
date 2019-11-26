@@ -1,4 +1,4 @@
-package com.utfpr.facetruco.models;
+package com.utfpr.facetruco.pojo;
 
 
 public class Loginho{
