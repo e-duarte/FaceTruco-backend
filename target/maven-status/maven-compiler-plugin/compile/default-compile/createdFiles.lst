@@ -5,6 +5,8 @@ com/utfpr/facetruco/data/UsuarioDAO.class
 com/utfpr/facetruco/models/Album.class
 com/utfpr/facetruco/data/PostagemDAO.class
 com/utfpr/facetruco/controllers/UsuarioController.class
+com/utfpr/facetruco/pojo/React.class
+com/utfpr/facetruco/controllers/ReacaoController.class
 com/utfpr/facetruco/controllers/LoginController.class
 com/utfpr/facetruco/controllers/PostagemController.class
 com/utfpr/facetruco/pojo/Loginho.class
@@ -16,6 +18,7 @@ com/utfpr/facetruco/pojo/Comment.class
 com/utfpr/facetruco/controllers/ComentarioController.class
 com/utfpr/facetruco/filter/JWTFilter.class
 com/utfpr/facetruco/models/Model.class
+com/utfpr/facetruco/data/ReacaoDAO.class
 com/utfpr/facetruco/data/ComentarioDAO.class
 com/utfpr/facetruco/models/Usuario.class
 com/utfpr/facetruco/models/Reacao.class

@@ -2,24 +2,24 @@ package com.utfpr.facetruco.pojo;
 
 
 public class Comment{
-    private Long id;
+    private Long postId;
     private String comentario;
     private String username;
 
 
-    public Comment(Long id, String comentario, String username) {
-        this.id = id;
+    public Comment(Long postId, String comentario, String username) {
+        this.postId = postId;
         this.comentario = comentario;
         this.username = username;
     }
 
 
-    public Long getId() {
-        return this.id;
+    public Long getCommentId() {
+        return this.postId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCommentId(Long id) {
+        this.postId = id;
     }
 
     public String getComentario() {

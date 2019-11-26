@@ -1,12 +1,12 @@
 package com.utfpr.facetruco.controllers;
 
+import javax.ws.rs.PathParam;
+
 import java.util.List;
 
-import javax.websocket.server.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -30,9 +30,9 @@ public class ComentarioController{
     }
 
     @POST
-    public Response store(@HeaderParam("id") Long id, Comentario comment){
+    public Response store(Comentario comment){
         comment.setUsuario(new UsuarioDAO().get(comment.getUsuario().getUsername()));
-        comment.setPostagem(new PostagemDAO().get(id));
+        comment.setPostagem(new PostagemDAO().get(comment.getPostagem().getId()));
     
         this.comentarioDAO.store(comment);
         return Response.status(Response.Status.CREATED).build();
@@ -40,9 +40,8 @@ public class ComentarioController{
 
     @GET
     @Path("/{id}")
-    public Long list(@PathParam("id") Long id){
-        //return this.comentarioDAO.listAll(id);
-        return id;
+    public List<Comment> list(@PathParam("id") Long id){
+        return this.comentarioDAO.listAll(id);
     }
 
     @DELETE
