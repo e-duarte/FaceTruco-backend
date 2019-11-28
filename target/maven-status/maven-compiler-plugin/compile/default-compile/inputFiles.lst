@@ -6,8 +6,10 @@
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Postagem.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/data/LoginDAO.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Reacao.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/CountReacaoController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/util/JWTUtil.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/pojo/UserLogged.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/data/RecursoDAO.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/PostagemController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/LoginController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/filter/JWTFilter.java
@@ -16,9 +18,12 @@
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/pojo/Loginho.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/pojo/React.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/data/UsuarioDAO.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/pojo/Resource.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/CountComentarioController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Model.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/security/CORSFilter.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/pojo/Comment.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/RecursoController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/AmigoController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/data/ComentarioDAO.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Recurso.java

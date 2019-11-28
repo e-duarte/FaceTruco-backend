@@ -18,13 +18,12 @@ public class PostagemDAO{
         String sql = "SELECT " + 
             "new com.utfpr.facetruco.pojo.Post " +
             "(p.id, p.legenda, p.sentimento, p.usuario.username) " +
-            " FROM Postagem p " +
+            "FROM Postagem p " +
             "WHERE p.usuario.username = :username";
 
         TypedQuery<Post> query = Connection.getConnection().createQuery(sql, Post.class);
         query.setParameter("username", username);
         return query.getResultList();
-        
     }
 
     public Postagem get(Long id){

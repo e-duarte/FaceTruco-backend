@@ -30,11 +30,18 @@ public class ComentarioController{
     }
 
     @POST
-    public Response store(Comentario comment){
-        comment.setUsuario(new UsuarioDAO().get(comment.getUsuario().getUsername()));
-        comment.setPostagem(new PostagemDAO().get(comment.getPostagem().getId()));
+    public Response store(Comment comment){
+        Comentario comentario = new Comentario();
+        
+        comentario.setComentario(comment.getComentario());
+        comentario.setUsuario(new UsuarioDAO().get(comment.getUsername()));
+
+
+        if(comment.getPostId() != null){
+            comentario.setPostagem(new PostagemDAO().get(comment.getPostId()));
+        }
     
-        this.comentarioDAO.store(comment);
+        this.comentarioDAO.store(comentario);
         return Response.status(Response.Status.CREATED).build();
     }
 

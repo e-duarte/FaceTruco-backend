@@ -17,7 +17,6 @@ import com.utfpr.facetruco.data.UsuarioDAO;
 import com.utfpr.facetruco.models.Postagem;
 import com.utfpr.facetruco.pojo.Post;
 
-
 @Path("/Postagens")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -29,9 +28,10 @@ public class PostagemController {
     }
 
     @POST
-    public Response store(Postagem post){
-        post.setUsuario(new UsuarioDAO().get(post.getUsuario().getUsername()));
-        this.postagemDAO.store(post);
+    public Response store(Post post){
+        Postagem postagem = new Postagem();
+        postagem.setUsuario(new UsuarioDAO().get(post.getUsername()));
+        this.postagemDAO.store(postagem);
         return Response.status(Response.Status.CREATED).build();
     }
 

@@ -16,7 +16,7 @@ public class ReacaoDAO{
 
     public List<React> listAll(Long id){
         String sql = "SELECT new com.utfpr.facetruco.pojo.React " +
-            "(r.postagem.id, r.reacao, r.usuario.username) " +
+            "(r.id, r.postagem.id, r.reacao, r.usuario.username) " +
             "FROM Reacao r " +
             "WHERE r.postagem.id = :id";
     
@@ -39,6 +39,27 @@ public class ReacaoDAO{
         Connection.getConnection().getTransaction().begin();
         Connection.getConnection().remove(reacao);
         Connection.getConnection().getTransaction().commit();
+    }
+
+    public Long countReacoes(Long id){
+        String sql = "SELECT COUNT(r)" +
+            "FROM Reacao r " +
+            "WHERE r.postagem.id = :id";
+    
+        TypedQuery<Long> query = Connection.getConnection().createQuery(sql, Long.class);
+        query.setParameter("id", id); 
+        return query.getSingleResult();
+    }
+
+    public Long countReacoes(Long id, String reacao){
+        String sql = "SELECT COUNT(r)" +
+            "FROM Reacao r " +
+            "WHERE r.postagem.id = :id and r.reacao = :reacao";
+    
+        TypedQuery<Long> query = Connection.getConnection().createQuery(sql, Long.class);
+        query.setParameter("id", id);
+        query.setParameter("reacao", reacao); 
+        return query.getSingleResult();
     }
     
 }

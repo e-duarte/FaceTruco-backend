@@ -16,7 +16,7 @@ public class ComentarioDAO{
 
     public List<Comment> listAll(Long id){
         String sql = "SELECT new com.utfpr.facetruco.pojo.Comment " +
-            "(c.postagem.id, c.comentario, c.usuario.username) " +
+            "(c.id, c.postagem.id, c.comentario, c.usuario.username) " +
             "FROM Comentario c " +
             "WHERE c.postagem.id = :id";
     
@@ -39,5 +39,15 @@ public class ComentarioDAO{
         Connection.getConnection().getTransaction().begin();
         Connection.getConnection().remove(comment);
         Connection.getConnection().getTransaction().commit();
+    }
+
+    public Long countComentarios(Long id){
+        String sql = "SELECT COUNT(c)" +
+            "FROM Comentario c " +
+            "WHERE c.postagem.id = :id";
+    
+        TypedQuery<Long> query = Connection.getConnection().createQuery(sql, Long.class);
+        query.setParameter("id", id); 
+        return query.getSingleResult();
     }
 }

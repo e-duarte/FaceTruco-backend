@@ -19,9 +19,6 @@ public class Postagem extends Model{
     private Usuario usuario;
 
     @ManyToMany
-    private List<Recurso> recursos;
-
-    @ManyToMany
     @JoinTable(name = "Marcacao",
     joinColumns = @JoinColumn(name = "id_post"),
     inverseJoinColumns = @JoinColumn(name = "id_usu"))
@@ -34,16 +31,10 @@ public class Postagem extends Model{
     public String getLegenda(){ return this.legenda; }
     public String getSentimento(){ return this.sentimento; }
     public Usuario getUsuario(){ return this.usuario; }
-    // public List<Comentario> getComentarios() { return this.comentarios; }
-    public List<Recurso> getRecursos(){ return this.recursos; }
-    // public List<Reacao> getReacoes() { return this.reacoes; }
     public List<Usuario> getMarcados() { return this.marcados; }
 
     public void setLegenda(String legenda){ this.legenda = legenda; }
     public void setSentimento(String sentimento){ this.sentimento = sentimento; }
     public void setUsuario(Usuario usuario){ this.usuario = usuario; }
-    // public void setComentarios(List<Comentario> comentarios) { this.comentarios = comentarios; }
-    public void setRecursos(List<Recurso> recursos) { this.recursos = recursos; }
-    // public void setReacoes(List<Reacao> reacoes) { this.reacoes = reacoes; }
     public void setMarcados(List<Usuario> marcados) { this.marcados = marcados; }
 }
