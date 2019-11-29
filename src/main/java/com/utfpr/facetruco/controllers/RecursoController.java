@@ -2,6 +2,7 @@ package com.utfpr.facetruco.controllers;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -22,11 +23,8 @@ import com.utfpr.facetruco.pojo.Resource;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class RecursoController{
+    @Inject
     private RecursoDAO recursoDAO;
-
-    public RecursoController(){
-        this.recursoDAO = new RecursoDAO();
-    }
 
     @POST
     public Response store(Resource resource){

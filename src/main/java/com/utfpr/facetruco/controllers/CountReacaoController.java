@@ -1,5 +1,6 @@
 package com.utfpr.facetruco.controllers;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,12 +14,9 @@ import com.utfpr.facetruco.data.ReacaoDAO;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CountReacaoController{
+    @Inject
     private ReacaoDAO reacaoDAO;
-
-    public CountReacaoController(){
-        this.reacaoDAO = new ReacaoDAO();
-    }
-
+    
     @GET
     @Path("/{id}")
     public Long get(@PathParam("id") Long id){

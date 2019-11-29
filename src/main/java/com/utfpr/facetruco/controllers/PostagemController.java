@@ -2,6 +2,7 @@ package com.utfpr.facetruco.controllers;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -21,16 +22,15 @@ import com.utfpr.facetruco.pojo.Post;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class PostagemController {
+    @Inject
     private PostagemDAO postagemDAO;
-
-    public PostagemController(){
-        this.postagemDAO = new PostagemDAO();
-    }
-
+    
     @POST
     public Response store(Post post){
         Postagem postagem = new Postagem();
         postagem.setUsuario(new UsuarioDAO().get(post.getUsername()));
+        postagem.setLegenda(post.getLegenda());
+        postagem.setSentimento(post.getSentimento());
         this.postagemDAO.store(postagem);
         return Response.status(Response.Status.CREATED).build();
     }

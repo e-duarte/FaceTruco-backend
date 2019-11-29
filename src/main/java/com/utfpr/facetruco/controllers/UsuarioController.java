@@ -5,6 +5,7 @@ import javax.ws.rs.PathParam;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -22,12 +23,9 @@ import com.utfpr.facetruco.models.Usuario;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class UsuarioController{
+    @Inject
     private UsuarioDAO usuarioDAO;
     
-    public UsuarioController(){
-        this.usuarioDAO = new UsuarioDAO();
-    }
-
     @POST
     public Response store(Usuario user){
         this.usuarioDAO.store(user);

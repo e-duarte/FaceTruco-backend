@@ -8,7 +8,6 @@ com/utfpr/facetruco/data/PostagemDAO.class
 com/utfpr/facetruco/controllers/UsuarioController.class
 com/utfpr/facetruco/pojo/React.class
 com/utfpr/facetruco/controllers/ReacaoController.class
-com/utfpr/facetruco/controllers/LoginController.class
 com/utfpr/facetruco/controllers/PostagemController.class
 com/utfpr/facetruco/pojo/Loginho.class
 com/utfpr/facetruco/pojo/Post.class

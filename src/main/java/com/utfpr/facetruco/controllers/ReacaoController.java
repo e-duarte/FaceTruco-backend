@@ -2,7 +2,7 @@ package com.utfpr.facetruco.controllers;
 
 import java.util.List;
 
-
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -23,12 +23,9 @@ import com.utfpr.facetruco.pojo.React;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ReacaoController{
+    @Inject
     private ReacaoDAO reactDAO;
 
-    public ReacaoController(){
-        this.reactDAO = new ReacaoDAO();
-    }
-    
     @POST
     public Response store(React react){
         Reacao reacao = new Reacao();

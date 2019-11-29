@@ -1,5 +1,6 @@
 package com.utfpr.facetruco.controllers;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,6 +15,7 @@ import com.utfpr.facetruco.data.ComentarioDAO;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class CountComentarioController{
+    @Inject
     private ComentarioDAO comentarioDAO;
 
     public CountComentarioController(){

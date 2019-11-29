@@ -4,6 +4,7 @@ import javax.ws.rs.PathParam;
 
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -23,11 +24,8 @@ import com.utfpr.facetruco.pojo.Comment;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class ComentarioController{
+    @Inject
     private ComentarioDAO comentarioDAO;
-
-    public ComentarioController(){
-        this.comentarioDAO = new ComentarioDAO();
-    }
 
     @POST
     public Response store(Comment comment){
@@ -35,12 +33,7 @@ public class ComentarioController{
         
         comentario.setComentario(comment.getComentario());
         comentario.setUsuario(new UsuarioDAO().get(comment.getUsername()));
-
-
-        if(comment.getPostId() != null){
-            comentario.setPostagem(new PostagemDAO().get(comment.getPostId()));
-        }
-    
+        comentario.setPostagem(new PostagemDAO().get(comment.getPostId()));
         this.comentarioDAO.store(comentario);
         return Response.status(Response.Status.CREATED).build();
     }

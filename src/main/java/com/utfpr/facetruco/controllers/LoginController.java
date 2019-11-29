@@ -1,5 +1,10 @@
 package com.utfpr.facetruco.controllers;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -22,30 +27,17 @@ import io.jsonwebtoken.Jws;
 @Path("/")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class LoginController{
+public class LoginController {
+    @Inject
     private LoginDAO loginDAO;
-
-    public LoginController(){
-        loginDAO = new LoginDAO();
-    }
-
-    @GET
-    @Path("/me")
-    public UserLogged me(@Context HttpServletRequest httpRequest) {
-        String token = httpRequest.getHeader(JWTUtil.TOKEN_HEADER);
-        Jws<Claims> jws = JWTUtil.decode(token);
-        UserLogged me = new UserLogged();
-        me.setUsername(jws.getBody().getSubject());
-        return me;
-    }
 
     @POST
     @Path("/login")
-    public Response login(Loginho loguinho){
-        Usuario user = loginDAO.get(loguinho);
-        if(user != null){
-            String token = JWTUtil.create(user.getUsername());
-            UserLogged me = new UserLogged();
+    public Response login(final Loginho loguinho) {
+        final Usuario user = loginDAO.get(loguinho);
+        if (user != null) {
+            final String token = JWTUtil.create(user.getUsername());
+            final UserLogged me = new UserLogged();
             me.setUsername(user.getUsername());
             me.setToken(token);
             return Response.ok().entity(me).build();
