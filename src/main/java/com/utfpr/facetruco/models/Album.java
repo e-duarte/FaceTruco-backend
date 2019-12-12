@@ -8,8 +8,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-
-
 @Entity
 public class Album extends Model{
     private static final long serialVersionUID = 3679301964975935477L;
@@ -21,31 +19,19 @@ public class Album extends Model{
     private Usuario usuario;
 
     @ManyToMany
-    private List<Comentario> comentarios;
-
-    @ManyToMany
-    private List<Postagem> posts;
-
-    @ManyToMany
     @JoinTable(name = "Colaborador",
         joinColumns = @JoinColumn(name = "id_alb"),
         inverseJoinColumns = @JoinColumn(name = "id_usu"))
     private List<Usuario> colabs;
 
-    @ManyToMany
-    private List<Reacao> reacoes;
-
     /* Getters and Setters */
     public String getTitulo() { return this.titulo; }
     public String getDescricao() { return this.descricao; }
     public Usuario getUsuario() { return this.usuario; }
-    public List<Comentario> getComentarios() { return this.comentarios; }
-    public List<Postagem> getPosts() { return this.posts; }
+    public List<Usuario> getColabs() { return this.colabs; }
 
     public void setTitulo(String titulo) { this.titulo = titulo; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
-    public void setComentarios(List<Comentario> comentarios) { this.comentarios = comentarios; }
-    public void setPosts(List<Postagem> posts) { this.posts = posts; }
-
+    public void setColabs(List<Usuario> colabs) { this.colabs = colabs; }
 }

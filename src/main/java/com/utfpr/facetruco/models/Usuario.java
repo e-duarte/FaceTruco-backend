@@ -1,11 +1,12 @@
 package com.utfpr.facetruco.models;
 
 import javax.json.bind.annotation.JsonbDateFormat;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
 
 import javax.persistence.JoinColumn;
 
@@ -29,7 +30,7 @@ public class Usuario extends Model{
     private String fotoPerfil;
     private String fotoTimeline;
     
-    @JsonbDateFormat(value = "dd-MM-yyyy")
+    @JsonbDateFormat(value = "yyyy-MM-dd")
     private LocalDate dataNascimento;
 
     @ManyToMany
@@ -37,6 +38,20 @@ public class Usuario extends Model{
     joinColumns = @JoinColumn(name = "id_usuario"),
     inverseJoinColumns = @JoinColumn(name = "id_target"))
     private List<Usuario> amigos;
+
+    @ElementCollection
+    @CollectionTable(
+        name="SolicitacoesEnviadas",
+        joinColumns=@JoinColumn(name="id_usuario"))
+    @Column(name="Solicitacoes")
+    private List<String> solicitacoesEnviadas;
+
+    @Override
+    public String toString(){
+        return this.username;
+    }
+
+
 
     /* Getters and Setters */
     public String getGenero() { return this.genero; }
@@ -49,6 +64,7 @@ public class Usuario extends Model{
     public String getEmail() { return this.email; }
     public List<Usuario> getAmigos() { return this.amigos; }
     public String getUsername() { return this.username; }
+    public List<String> getSolicitacoesEnviadas() { return this.solicitacoesEnviadas; }
 
     public void setNome(String nome) { this.nome = nome; }
     public void setSobrenome(String sobrenome) { this.sobrenome = sobrenome; }
@@ -60,4 +76,6 @@ public class Usuario extends Model{
     public void setGenero(String genero) { this.genero = genero; }
     public void setAmigos(List<Usuario> amigos) { this.amigos = amigos; }
     public void setUsername(String username) { this.username = username; }
+    public void setSolicitacoesEnviadas(List<String> solicitacoesEnviadas) { this.solicitacoesEnviadas = solicitacoesEnviadas; }
+
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import com.utfpr.facetruco.models.Usuario;
+import com.utfpr.facetruco.pojo.User;
 
 public class UsuarioDAO {
     public void store (Usuario u){
@@ -13,11 +14,14 @@ public class UsuarioDAO {
         Connection.getConnection().getTransaction().commit();
     }
 
-    public List<Usuario> listAll(){
-        String sql = "select u from Usuario u";
-        TypedQuery<Usuario> query = Connection.getConnection().createQuery(sql, Usuario.class);
-        List<Usuario> usuarios = query.getResultList();
-        return usuarios;
+    public List<User> listAll(){
+        String sql = "select NEW com.utfpr.facetruco.pojo.User" +
+            "(u.id,  u.nome, u.sobrenome, u.email, " +
+            "u.username, u.fotoPerfil, " +
+            "u.fotoTimeline) " +
+            "from Usuario u";
+        TypedQuery<User> query = Connection.getConnection().createQuery(sql, User.class);
+        return query.getResultList();
     }
 
     public Usuario get(String username){

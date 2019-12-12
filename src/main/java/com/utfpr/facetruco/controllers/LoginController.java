@@ -1,17 +1,10 @@
 package com.utfpr.facetruco.controllers;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -21,8 +14,6 @@ import com.utfpr.facetruco.pojo.Loginho;
 import com.utfpr.facetruco.models.Usuario;
 import com.utfpr.facetruco.pojo.UserLogged;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 
 @Path("/")
 @Consumes(MediaType.APPLICATION_JSON)

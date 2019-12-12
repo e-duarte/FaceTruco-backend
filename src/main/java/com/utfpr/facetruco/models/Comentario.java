@@ -15,13 +15,18 @@ public class Comentario extends Model{
     @ManyToOne
     private Postagem postagem;
 
+    @ManyToOne
+    private Album album;
+
+
     /* Getters and Setters */
     public String getComentario() { return this.comentario; }
     public Usuario getUsuario() { return this.usuario; }
     public Postagem getPostagem() { return  this.postagem; }
+    public Album getAlbum() { return this.album; }
 
     public void setComentario(String comentario) { this.comentario = comentario; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
-    public void setPostagem(Postagem postagem) {this.postagem = postagem; }
-
+    public void setPostagem(Postagem postagem) { this.postagem = postagem; }
+    public void setAlbum(Album album) { this.album = album; }
 }

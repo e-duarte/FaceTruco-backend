@@ -24,6 +24,9 @@ public class Postagem extends Model{
     inverseJoinColumns = @JoinColumn(name = "id_usu"))
     private List<Usuario> marcados;
 
+    @ManyToOne
+    private Album album;
+
     public Postagem() {}
 
 
@@ -32,9 +35,11 @@ public class Postagem extends Model{
     public String getSentimento(){ return this.sentimento; }
     public Usuario getUsuario(){ return this.usuario; }
     public List<Usuario> getMarcados() { return this.marcados; }
-
+    public Album getAlbum() { return this.album; }
+    
     public void setLegenda(String legenda){ this.legenda = legenda; }
     public void setSentimento(String sentimento){ this.sentimento = sentimento; }
     public void setUsuario(Usuario usuario){ this.usuario = usuario; }
     public void setMarcados(List<Usuario> marcados) { this.marcados = marcados; }
+    public void setAlbum(Album album) { this.album = album; }
 }
