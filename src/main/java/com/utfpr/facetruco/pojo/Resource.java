@@ -3,6 +3,7 @@ package com.utfpr.facetruco.pojo;
 public class Resource{
     private Long id;
     private Long postId;
+    private Long albumId;
     private String username;
 
     private String url;
@@ -11,9 +12,10 @@ public class Resource{
 
     public Resource() { }
 
-    public Resource(Long id, Long postId, String username, String url, String tipo) {
+    public Resource(Long id, Long postId, Long albumId, String username, String url, String tipo) {
         this.id = id;
         this.postId = postId;
+        this.albumId = albumId;
         this.username = username;
         this.url = url;
         this.tipo = tipo;
@@ -57,6 +59,15 @@ public class Resource{
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+
+    public Long getAlbumId() {
+        return this.albumId;
+    }
+
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
     }
 
 }

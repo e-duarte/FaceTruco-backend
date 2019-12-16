@@ -3,7 +3,6 @@ package com.utfpr.facetruco.data;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
-
 import com.utfpr.facetruco.models.Album;
 import com.utfpr.facetruco.pojo.AlbumPojo;
 

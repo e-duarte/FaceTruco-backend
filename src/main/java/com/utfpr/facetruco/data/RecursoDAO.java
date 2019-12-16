@@ -14,11 +14,11 @@ public class RecursoDAO{
         Connection.getConnection().getTransaction().commit();
     }
 
-    public List<Resource> listPost(Long id){
+    public List<Resource> listPost(Long id, String column){
         String sql = "SELECT NEW com.utfpr.facetruco.pojo.Resource " +
-            "(r.id, r.postagem.id, r.usuario.username, r.url, r.tipo) " +
+            "(r.id, r.postagem.id, r.album.id, r.usuario.username, r.url, r.tipo) " +
             "FROM Recurso r " +
-            "WHERE r.postagem.id = :id";
+            "WHERE r." + column + ".id = :id";
 
         TypedQuery<Resource> query = Connection.getConnection().createQuery(sql, Resource.class);
         query.setParameter("id", id);

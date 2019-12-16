@@ -4,16 +4,20 @@ package com.utfpr.facetruco.pojo;
 public class Comment{
     private Long id;
     private Long postId;
+    private Long albumId;
     private String comentario;
+    private String recurso;
     private String username;
 
     public Comment(){ }
 
 
-    public Comment(Long id, Long postId, String comentario, String username) {
+    public Comment(Long id, Long postId, Long albumId, String comentario, String recurso, String username) {
         this.id = id;
         this.postId = postId;
+        this.albumId = albumId;
         this.comentario = comentario;
+        this.recurso = recurso;
         this.username = username;
     }
 
@@ -49,5 +53,20 @@ public class Comment{
         this.username = username;
     }
 
+    public Long getAlbumId() {
+        return this.albumId;
+    }
+
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
+    }
+
+    public String getRecurso() {
+        return this.recurso;
+    }
+
+    public void setRecurso(String recurso) {
+        this.recurso = recurso;
+    }
 
 }

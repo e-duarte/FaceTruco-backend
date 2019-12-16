@@ -2,18 +2,16 @@ package com.utfpr.facetruco.controllers;
 
 import javax.ws.rs.PathParam;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.utfpr.facetruco.data.AlbumDAO;
 import com.utfpr.facetruco.data.ComentarioDAO;
 import com.utfpr.facetruco.data.PostagemDAO;
 import com.utfpr.facetruco.data.UsuarioDAO;
@@ -30,18 +28,17 @@ public class ComentarioController{
     @POST
     public Response store(Comment comment){
         Comentario comentario = new Comentario();
+
+        if(comment.getPostId() != null)
+            comentario.setPostagem(new PostagemDAO().get(comment.getPostId()));
+        if(comment.getAlbumId() != null)
+            comentario.setAlbum(new AlbumDAO().get(comment.getAlbumId()));
         
         comentario.setComentario(comment.getComentario());
+        comentario.setRecurso(comment.getRecurso());
         comentario.setUsuario(new UsuarioDAO().get(comment.getUsername()));
-        comentario.setPostagem(new PostagemDAO().get(comment.getPostId()));
         this.comentarioDAO.store(comentario);
         return Response.status(Response.Status.CREATED).build();
-    }
-
-    @GET
-    @Path("/{id}")
-    public List<Comment> list(@PathParam("id") Long id){
-        return this.comentarioDAO.listAll(id);
     }
 
     @DELETE

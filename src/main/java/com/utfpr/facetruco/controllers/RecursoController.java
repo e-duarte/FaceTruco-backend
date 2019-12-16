@@ -1,11 +1,8 @@
 package com.utfpr.facetruco.controllers;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -13,6 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.utfpr.facetruco.data.AlbumDAO;
 import com.utfpr.facetruco.data.PostagemDAO;
 import com.utfpr.facetruco.data.RecursoDAO;
 import com.utfpr.facetruco.data.UsuarioDAO;
@@ -29,20 +27,18 @@ public class RecursoController{
     @POST
     public Response store(Resource resource){
         Recurso recurso = new Recurso();
+
+        if(resource.getPostId() != null)
+            recurso.setPostagem(new PostagemDAO().get(resource.getPostId()));
+        if(resource.getAlbumId() != null)
+            recurso.setAlbum(new AlbumDAO().get(resource.getAlbumId()));
+
         recurso.setUrl(resource.getUrl());
         recurso.setTipo(resource.getTipo());
         recurso.setUsuario(new UsuarioDAO().get(resource.getUsername()));
 
-        recurso.setPostagem(new PostagemDAO().get(resource.getPostId()));
-
         recursoDAO.store(recurso);
         return Response.status(Response.Status.CREATED).build();
-    }
-
-    @GET
-    @Path("/{id}/post")
-    public List<Resource> list(@PathParam("id") Long id){
-        return recursoDAO.listPost(id);
     }
 
     @DELETE

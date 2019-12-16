@@ -18,14 +18,14 @@ public class CountReacaoController{
     private ReacaoDAO reacaoDAO;
     
     @GET
-    @Path("/{id}")
-    public Long get(@PathParam("id") Long id){
-        return reacaoDAO.countReacoes(id);
+    @Path("/{id}/{target}")
+    public Long get(@PathParam("id") Long id, @PathParam("target") String target){
+        return reacaoDAO.countReacoes(id, target);
     }
 
     @GET
-    @Path("/{id}/{reacao}")
-    public Long get(@PathParam("id") Long id, @PathParam("reacao") String reacao){
-        return reacaoDAO.countReacoes(id, reacao);
+    @Path("/{id}/{target}/{reacao}")
+    public Long get(@PathParam("id") Long id, @PathParam("target") String target, @PathParam("reacao") String reacao){
+        return reacaoDAO.countReacoes(id, target, reacao);
     }
 }

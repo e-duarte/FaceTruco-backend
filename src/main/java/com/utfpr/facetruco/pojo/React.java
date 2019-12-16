@@ -3,14 +3,18 @@ package com.utfpr.facetruco.pojo;
 public class React{
     private Long id;
     private Long postId;
+    private Long albumId;
+    private Long commentId;
     private String reacao;
     private String username;
 
     public React(){}
 
-    public React(Long id, Long postId, String reacao, String username) {
+    public React(Long id, Long postId, Long albumId, Long commentId, String reacao, String username) {
         this.id = id;
         this.postId = postId;
+        this.albumId = albumId;
+        this.commentId = commentId;
         this.reacao = reacao;
         this.username = username;
     }
@@ -47,4 +51,21 @@ public class React{
         this.id = id;
     }
 
+
+    public Long getAlbumId() {
+        return this.albumId;
+    }
+
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
+    }
+
+
+    public Long getCommentId() {
+        return this.commentId;
+    }
+
+    public void setCommentId(Long commentId) {
+        this.commentId = commentId;
+    }
 }

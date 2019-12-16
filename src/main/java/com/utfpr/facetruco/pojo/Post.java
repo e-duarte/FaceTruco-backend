@@ -3,20 +3,20 @@ package com.utfpr.facetruco.pojo;
 
 public class Post{
     private Long id;
+    private Long albumId;
     private String legenda;
     private String sentimento;
     private String username;
 
     public Post() {}
 
-
-    public Post(Long id, String legenda, String sentimento, String username) {
+    public Post(Long id, Long albumId, String legenda, String sentimento, String username) {
         this.id = id;
+        this.albumId = albumId;
         this.legenda = legenda;
         this.sentimento = sentimento;
         this.username = username;
     }
-
 
     public Long getId() {
         return this.id;
@@ -50,5 +50,11 @@ public class Post{
         this.username = username;
     }
 
+    public Long getAlbumId() {
+        return this.albumId;
+    }
 
+    public void setAlbumId(Long albumId) {
+        this.albumId = albumId;
+    }
 }

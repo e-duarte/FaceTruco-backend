@@ -8,6 +8,7 @@ public class Comentario extends Model{
     private static final long serialVersionUID = 3180051993517093044L;
 
     private String comentario;
+    private String recurso;
     
     @ManyToOne
     private Usuario usuario;
@@ -18,15 +19,16 @@ public class Comentario extends Model{
     @ManyToOne
     private Album album;
 
-
     /* Getters and Setters */
     public String getComentario() { return this.comentario; }
     public Usuario getUsuario() { return this.usuario; }
     public Postagem getPostagem() { return  this.postagem; }
     public Album getAlbum() { return this.album; }
+    public String getRecurso() { return this.recurso; }
 
     public void setComentario(String comentario) { this.comentario = comentario; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario; }
     public void setPostagem(Postagem postagem) { this.postagem = postagem; }
     public void setAlbum(Album album) { this.album = album; }
+    public void setRecurso(String recurso) { this.recurso = recurso; }
 }

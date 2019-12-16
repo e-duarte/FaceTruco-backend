@@ -17,9 +17,9 @@ public class PostagemDAO{
     public List<Post> listAll(String username){
         String sql = "SELECT " + 
             "new com.utfpr.facetruco.pojo.Post " +
-            "(p.id, p.legenda, p.sentimento, p.usuario.username) " +
+            "(p.id, p.album.id, p.legenda, p.sentimento, p.usuario.username) " +
             "FROM Postagem p " +
-            "WHERE p.usuario.username = :username";
+            "WHERE p.usuario.username = :username and p.album IS NULL";
 
         TypedQuery<Post> query = Connection.getConnection().createQuery(sql, Post.class);
         query.setParameter("username", username);
@@ -40,5 +40,16 @@ public class PostagemDAO{
         Connection.getConnection().getTransaction().begin();
         Connection.getConnection().remove(post);
         Connection.getConnection().getTransaction().commit();
+    }
+
+    public List<Post> listall(Long albumId){
+        String sql = "SELECT " + 
+            "NEW com.utfpr.facetruco.pojo.Post " +
+            "(p.id, p.album.id, p.legenda, p.sentimento, p.usuario.username) " +
+            "FROM Postagem p " +
+            "WHERE p.album.id = :albumId";
+        TypedQuery<Post> query = Connection.getConnection().createQuery(sql, Post.class);
+        query.setParameter("albumId", albumId);
+        return query.getResultList();
     }
 }
