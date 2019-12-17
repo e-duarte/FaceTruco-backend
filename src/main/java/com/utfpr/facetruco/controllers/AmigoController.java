@@ -14,8 +14,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.utfpr.facetruco.data.SolicitacaoDAO;
 import com.utfpr.facetruco.data.UsuarioDAO;
 import com.utfpr.facetruco.models.Usuario;
+import com.utfpr.facetruco.pojo.AmigoPojo;
 import com.utfpr.facetruco.pojo.Request;
 
 
@@ -25,28 +27,43 @@ import com.utfpr.facetruco.pojo.Request;
 public class AmigoController{
     @Inject
     private UsuarioDAO usuarioDAO;
+
+    @Inject
+    private SolicitacaoDAO solicitacaoDAO;
     
     @POST
     public Response store(Request request){
         Usuario userLogged = usuarioDAO.get(request.getOrigin());
-        Usuario newFriend = usuarioDAO.get(request.getTarget());
-        List<Usuario> friends = userLogged.getAmigos();
-        List<String> sEnviadas = userLogged.getSolicitacoesEnviadas();
+        Usuario userTarget = usuarioDAO.get(request.getTarget());
 
-        if(friends == null) friends = new ArrayList<>();
-        if(sEnviadas == null) sEnviadas = new ArrayList<>();
+        List<Usuario> friendsLogged = userLogged.getAmigos();
+        List<Usuario> friendsTarget = userTarget.getAmigos();
+        List<String> sEnviadasTarget = userLogged.getSolicitacoesEnviadas();
+        
+        if(friendsLogged == null) friendsLogged = new ArrayList<>();
+        if(friendsTarget == null) friendsTarget = new ArrayList<>();
+        if(sEnviadasTarget == null) sEnviadasTarget = new ArrayList<>();
 
-        friends.add(newFriend);
-        sEnviadas.remove(newFriend.getUsername());
-        usuarioDAO.store(userLogged);                
+        friendsLogged.add(userTarget);
+        friendsTarget.add(userLogged);
+
+        sEnviadasTarget.remove(userLogged.getUsername());
+        solicitacaoDAO.delete(solicitacaoDAO.get(request.getTarget(), request.getOrigin()).getId());
+        usuarioDAO.store(userLogged);    
+        usuarioDAO.store(userTarget);
         return Response.status(Response.Status.CREATED).build();
     }
 
     @GET
     @Path("/{username}")
-    public List<Usuario> store(@PathParam("username") String username){
+    public AmigoPojo list(@PathParam("username") String username){
         Usuario userLogged = usuarioDAO.get(username);
-        return userLogged.getAmigos();
+        AmigoPojo amigos = new AmigoPojo();
+        amigos.setAmigos(new ArrayList<String>());
+        for (Usuario user : userLogged.getAmigos()) amigos.getAmigos().add(user.getUsername());
+        amigos.setUsername(username);
+        return amigos;
+        // return null;
     }
     
     @DELETE

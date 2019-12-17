@@ -1,5 +1,8 @@
 package com.utfpr.facetruco.pojo;
 
+import java.time.LocalDate;
+
+import javax.json.bind.annotation.JsonbDateFormat;
 
 public class Post{
     private Long id;
@@ -7,15 +10,18 @@ public class Post{
     private String legenda;
     private String sentimento;
     private String username;
+    @JsonbDateFormat(value = "dd-MM-yyyy")
+    private LocalDate timestamp;
 
     public Post() {}
 
-    public Post(Long id, Long albumId, String legenda, String sentimento, String username) {
+    public Post(Long id, Long albumId, String legenda, String sentimento, String username, LocalDate timestamp) {
         this.id = id;
         this.albumId = albumId;
         this.legenda = legenda;
         this.sentimento = sentimento;
         this.username = username;
+        this.timestamp = timestamp;
     }
 
     public Long getId() {
@@ -57,4 +63,13 @@ public class Post{
     public void setAlbumId(Long albumId) {
         this.albumId = albumId;
     }
+
+    public LocalDate getTimestamp() {
+        return this.timestamp;
+    }
+
+    public void setTimestamp(LocalDate timestamp) {
+        this.timestamp = timestamp;
+    }
+
 }

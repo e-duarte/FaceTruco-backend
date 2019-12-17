@@ -45,5 +45,7 @@
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/pojo/Comment.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/RecursoController.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/AmigoController.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/pojo/AmigoPojo.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/models/Recurso.java
 /home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/data/ReacaoDAO.java
+/home/ewerton/Desktop/projeto final TDS/FaceTruco-backend/src/main/java/com/utfpr/facetruco/controllers/FeedController.java

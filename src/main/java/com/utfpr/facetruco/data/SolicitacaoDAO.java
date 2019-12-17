@@ -25,14 +25,22 @@ public class SolicitacaoDAO{
     }
 
     public Solicitacao get(Long id){
-        String sql = "select s "+
-                        "from Solicitacao s " +
-                        "where s.id = :id";
+        String sql = "SELECT s "+
+            "FROM Solicitacao s " +
+            "WHERE s.id = :id";
         TypedQuery<Solicitacao> query = Connection.getConnection().createQuery(sql, Solicitacao.class);
         query.setParameter("id",id);
-        Solicitacao usuario = query.getSingleResult();
+        return query.getSingleResult();
+    }
 
-        return usuario;
+    public Solicitacao get(String userOrigin, String userTarget){
+        String sql = "SELECT s "+
+            "FROM Solicitacao s " +
+            "WHERE s.usernameOrigem = :userOrigin AND s.usuario.username = :userTarget";
+        TypedQuery<Solicitacao> query = Connection.getConnection().createQuery(sql, Solicitacao.class);
+        query.setParameter("userTarget", userTarget);
+        query.setParameter("userOrigin",userOrigin);
+        return query.getSingleResult();
     }
 
     public void delete(Long id){

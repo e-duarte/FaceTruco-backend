@@ -25,9 +25,10 @@ public class UsuarioDAO {
     }
 
     public Usuario get(String username){
-        String sql = "select u "+
-                        "from Usuario u " +
-                        "where u.username = :username";
+        String sql = "SELECT u "+
+            "FROM Usuario u " +
+            "WHERE u.username = :username";
+            
         TypedQuery<Usuario> query = Connection.getConnection().createQuery(sql, Usuario.class);
         query.setParameter("username",username);
         Usuario usuario = query.getSingleResult();

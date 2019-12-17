@@ -2,6 +2,7 @@ com/utfpr/facetruco/util/JWTUtil.class
 com/utfpr/facetruco/controllers/PostagemAlbumController.class
 com/utfpr/facetruco/models/Album.class
 com/utfpr/facetruco/data/PostagemDAO.class
+com/utfpr/facetruco/controllers/FeedController.class
 com/utfpr/facetruco/data/SolicitacaoDAO.class
 com/utfpr/facetruco/controllers/ReacaoController.class
 com/utfpr/facetruco/controllers/LoginController.class
@@ -13,6 +14,7 @@ com/utfpr/facetruco/pojo/Comment.class
 com/utfpr/facetruco/pojo/User.class
 com/utfpr/facetruco/controllers/ReacaoListController.class
 com/utfpr/facetruco/pojo/AlbumPojo.class
+com/utfpr/facetruco/pojo/AmigoPojo.class
 com/utfpr/facetruco/models/Model.class
 com/utfpr/facetruco/data/ReacaoDAO.class
 com/utfpr/facetruco/data/ComentarioDAO.class

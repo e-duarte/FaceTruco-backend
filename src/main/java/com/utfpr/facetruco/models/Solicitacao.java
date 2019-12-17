@@ -13,7 +13,6 @@ public class Solicitacao extends Model{
     @ManyToOne
     private Usuario usuario;
 
-
     public String getUsernameOrigem() { return this.usernameOrigem; }
     public Boolean isVisualizada() { return this.visualizada; }
     public Boolean getVisualizada() { return this.visualizada; }

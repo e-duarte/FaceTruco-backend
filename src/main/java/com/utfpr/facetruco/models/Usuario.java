@@ -30,7 +30,7 @@ public class Usuario extends Model{
     private String fotoPerfil;
     private String fotoTimeline;
     
-    @JsonbDateFormat(value = "yyyy-MM-dd")
+    @JsonbDateFormat(value = "dd-MM-yyyy")
     private LocalDate dataNascimento;
 
     @ManyToMany
@@ -50,8 +50,6 @@ public class Usuario extends Model{
     public String toString(){
         return this.username;
     }
-
-
 
     /* Getters and Setters */
     public String getGenero() { return this.genero; }

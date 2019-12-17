@@ -34,7 +34,6 @@ public class ColaboradoresController{
             album.setColabs(new ArrayList<Usuario>());
         for (String users : colab.getColabs())
             album.getColabs().add(new UsuarioDAO().get(users));
-        System.out.println("Git");
         return Response.status(Response.Status.CREATED).build();
     }
 
