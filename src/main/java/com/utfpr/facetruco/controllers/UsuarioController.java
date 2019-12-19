@@ -65,8 +65,7 @@ public class UsuarioController{
         user.setSenha(usuario.getSenha());
         user.setGenero(usuario.getGenero());
         user.setFotoPerfil(usuario.getFotoPerfil());
-        user.setFotoTimeline(usuario.getFotoTimeline());
-        
+        user.setFotoTimeline(usuario.getFotoTimeline());   
         user.setDataNascimento(date.toString());
 
         return user;

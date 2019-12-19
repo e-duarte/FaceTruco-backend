@@ -16,7 +16,7 @@ public class SolicitacaoDAO{
 
     public List<Request> listAll(String username){
         String sql = "SELECT NEW com.utfpr.facetruco.pojo.Request" +
-            "(s.id, s.usuario.username, s.usernameOrigem) "+
+            "(s.id, s.usuario.username, s.usernameOrigem, s.visualizada) "+
             "FROM Solicitacao s " +
             "WHERE s.usuario.username = :username";
         TypedQuery<Request> query = Connection.getConnection().createQuery(sql, Request.class);

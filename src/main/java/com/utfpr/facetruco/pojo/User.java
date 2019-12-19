@@ -1,24 +1,18 @@
 package com.utfpr.facetruco.pojo;
 
-
-
 public class User{
     private Long id;
     private String nome;
     private String sobrenome;
     private String email;
     private String username;
-
     private String senha;
     private String genero;
     private String fotoPerfil;
     private String fotoTimeline;
-    
     private String dataNascimento;
 
-
     public User(){ }
-
 
     public User(Long id, String nome, String sobrenome, String email, String username, String fotoPerfil, String fotoTimeline) {
         this.id = id;

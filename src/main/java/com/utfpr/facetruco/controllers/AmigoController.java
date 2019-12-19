@@ -63,7 +63,6 @@ public class AmigoController{
         for (Usuario user : userLogged.getAmigos()) amigos.getAmigos().add(user.getUsername());
         amigos.setUsername(username);
         return amigos;
-        // return null;
     }
     
     @DELETE

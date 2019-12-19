@@ -1,6 +1,7 @@
 package com.utfpr.facetruco.pojo;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.json.bind.annotation.JsonbDateFormat;
 
@@ -12,6 +13,7 @@ public class Post{
     private String username;
     @JsonbDateFormat(value = "dd-MM-yyyy")
     private LocalDate timestamp;
+    private List<String> marcados;
 
     public Post() {}
 
@@ -70,6 +72,14 @@ public class Post{
 
     public void setTimestamp(LocalDate timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public List<String> getMarcados() {
+        return this.marcados;
+    }
+
+    public void setMarcados(List<String> marcados) {
+        this.marcados = marcados;
     }
 
 }

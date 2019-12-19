@@ -60,7 +60,6 @@ public class React{
         this.albumId = albumId;
     }
 
-
     public Long getCommentId() {
         return this.commentId;
     }

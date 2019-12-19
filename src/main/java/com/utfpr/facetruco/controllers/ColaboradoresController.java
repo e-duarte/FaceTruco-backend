@@ -6,12 +6,12 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
-import javax.ws.rs.POST;
+// import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+// import javax.ws.rs.core.Response;
 
 import com.utfpr.facetruco.data.AlbumDAO;
 import com.utfpr.facetruco.data.UsuarioDAO;
@@ -26,7 +26,7 @@ public class ColaboradoresController{
     @Inject
     private AlbumDAO albumDAO;
 
-    @POST
+/*     @POST
     public Response store(ColaboradorPojo colab){
         Album album = albumDAO.get(colab.getAlbumId());
 
@@ -35,7 +35,7 @@ public class ColaboradoresController{
         for (String users : colab.getColabs())
             album.getColabs().add(new UsuarioDAO().get(users));
         return Response.status(Response.Status.CREATED).build();
-    }
+    } */
 
     @GET
     @Path("/{id}")

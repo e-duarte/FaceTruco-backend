@@ -54,7 +54,7 @@ public class AlbumController{
 
     @DELETE
     @Path("/{albumId}")
-    public Response delete(@PathParam("albumId")Long albumId){
+    public Response delete(@PathParam("albumId") Long albumId){
         albumDAO.delete(albumId);
         return Response.status(Response.Status.OK).build();
     }

@@ -21,5 +21,4 @@ public class Solicitacao extends Model{
     public void setUsernameOrigem(String usernameOrigem) { this.usernameOrigem = usernameOrigem; }
     public void setVisualizada(Boolean visualizada) { this.visualizada = visualizada; }
     public void setUsuario(Usuario usuario) { this.usuario = usuario;}
-    
 }

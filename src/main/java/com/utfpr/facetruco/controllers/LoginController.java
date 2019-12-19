@@ -24,7 +24,7 @@ public class LoginController {
 
     @POST
     @Path("/login")
-    public Response login(final Loginho loguinho) {
+    public Response login(Loginho loguinho) {
         final Usuario user = loginDAO.get(loguinho);
         if (user != null) {
             final String token = JWTUtil.create(user.getUsername());

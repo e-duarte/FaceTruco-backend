@@ -1,5 +1,8 @@
 package com.utfpr.facetruco.pojo;
 
+import java.time.LocalDate;
+
+import javax.json.bind.annotation.JsonbDateFormat;
 
 public class Comment{
     private Long id;
@@ -8,17 +11,20 @@ public class Comment{
     private String comentario;
     private String recurso;
     private String username;
+    @JsonbDateFormat(value = "dd-MM-yyyy")
+    private LocalDate timestamp;
 
     public Comment(){ }
 
 
-    public Comment(Long id, Long postId, Long albumId, String comentario, String recurso, String username) {
+    public Comment(Long id, Long postId, Long albumId, String comentario, String recurso, String username, LocalDate timestamp) {
         this.id = id;
         this.postId = postId;
         this.albumId = albumId;
         this.comentario = comentario;
         this.recurso = recurso;
         this.username = username;
+        this.timestamp = timestamp;
     }
 
     public Long getId() {
@@ -68,5 +74,14 @@ public class Comment{
     public void setRecurso(String recurso) {
         this.recurso = recurso;
     }
+
+    public LocalDate getTimestamp() {
+        return this.timestamp;
+    }
+
+    public void setTimestamp(LocalDate timestamp) {
+        this.timestamp = timestamp;
+    }
+
 
 }

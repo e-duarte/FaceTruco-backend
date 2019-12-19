@@ -16,7 +16,7 @@ public class ComentarioDAO{
 
     public List<Comment> listAll(Long id, String column){
         String sql = "SELECT new com.utfpr.facetruco.pojo.Comment " +
-            "(c.id, c.postagem.id, c.album.id, c.comentario, c.recurso, c.usuario.username) " +
+            "(c.id, c.postagem.id, c.album.id, c.comentario, c.recurso, c.usuario.username, c.timestamp) " +
             "FROM Comentario c " +
             "WHERE c." + column +".id = :id";
     
